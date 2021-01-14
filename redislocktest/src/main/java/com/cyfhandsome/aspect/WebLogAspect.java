@@ -7,13 +7,14 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
 /**
  * @author cyf
  * @date 2021/1/14 10:20
  */
 @Aspect
-@Configuration
+@Component
 @Slf4j
 public class WebLogAspect {
 

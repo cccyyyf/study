@@ -33,8 +33,8 @@ public class RedisLockController {
     @RedisLockAnnotation(typeEnum = RedisLockTypeEnum.ONE, lockTime = 3)
     public Book testRedisLock(@RequestParam("userId") Long userId) {
         try {
-            /*log.info("睡眠执行前");
-            Thread.sleep(10000);*/
+            log.info("睡眠执行前");
+            Thread.sleep(10000);
             log.info("睡眠执行后");
         } catch (Exception e) {
             // log error
