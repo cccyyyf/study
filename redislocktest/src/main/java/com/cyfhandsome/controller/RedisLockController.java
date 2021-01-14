@@ -5,10 +5,7 @@ import com.cyfhandsome.annotation.WebLog;
 import com.cyfhandsome.enums.RedisLockTypeEnum;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.awt.print.Book;
 
@@ -23,10 +20,10 @@ public class RedisLockController {
     private static final Logger log = LoggerFactory.getLogger(RedisLockController.class);
 
 
-    @GetMapping("/test")
+    @GetMapping("/test/{id}")
     @WebLog(description = "请求了用户接口")
-    public String test(){
-        return "12334";
+    public String test(@PathVariable String id){
+        return id;
     }
 
     @GetMapping("/testRedisLock")
