@@ -2,7 +2,7 @@ package com.cyfhandsome.aspect;
 
 import com.cyfhandsome.annotation.RedisLockAnnotation;
 import com.cyfhandsome.enums.RedisLockTypeEnum;
-import com.cyfhandsome.modol.RedisLockDefinitionHolder;
+import com.cyfhandsome.modol.RedisLockTestHolder;
 import org.apache.commons.lang3.concurrent.BasicThreadFactory;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -44,14 +44,14 @@ public class RedisLockAspect {
     /**
      * 存储目前有效的key定义
      */
-    private static ConcurrentLinkedQueue<RedisLockDefinitionHolder> holderList = new ConcurrentLinkedQueue();
+    private static ConcurrentLinkedQueue<RedisLockTestHolder> holderList = new ConcurrentLinkedQueue();
 
     {
         SCHEDULER.scheduleAtFixedRate(() -> {
             // 这里记得加 try-catch，否者报错后定时任务将不会再执行=-=
-            Iterator<RedisLockDefinitionHolder> iterator = holderList.iterator();
+            Iterator<RedisLockTestHolder> iterator = holderList.iterator();
             while (iterator.hasNext()) {
-                RedisLockDefinitionHolder holder = iterator.next();
+                RedisLockTestHolder holder = iterator.next();
                 // 判空
                 if (holder == null) {
                     iterator.remove();
@@ -118,31 +118,11 @@ public class RedisLockAspect {
                 signature.getName(),
                 signature.getMethod().getParameterTypes());
         if (method == null) {
-            throw new IllegalStateException("Cannot resolve target method: " + signature.getMethod().getName());
+            throw new IllegalStateException("不能解析当前方法： " + signature.getMethod().getName());
         }
         return method;
     }
 
-    /**
-     * Accept from  li-shaoke
-     * <p>
-     * make sure release lock in current thread
-     *
-     * @param businessKey   unique key
-     * @param currentThread thread info
-     */
-    private void releaseValidKey(String businessKey, Thread currentThread) {
-        try {
-            RedisLockDefinitionHolder redisLockDefinitionHolder = holderList.stream().filter(h -> businessKey.equals(h.getBusinessKey())).findFirst().orElse(null);
-            if (redisLockDefinitionHolder != null && redisLockDefinitionHolder.getCurrentTread().equals(currentThread)) {
-                // 请求结束后，强制删掉 key，释放锁
-                redisTemplate.delete(businessKey);
-                log.info("release the lock, businessKey is [" + businessKey + "]");
-            }
-        } catch (Exception e) {
-            log.error("release the lock error", e);
-        }
-    }
 
 
     @Pointcut("@annotation(com.cyfhandsome.annotation.RedisLockAnnotation)")
@@ -167,28 +147,27 @@ public class RedisLockAspect {
         try {
             boolean isSuccess = redisTemplate.opsForValue().setIfAbsent(businessKey, uniqueValue);
             if (!isSuccess) {
-                throw new Exception("You can't do it，because another has get the lock =-=");
+                throw new Exception("正在操作，请稍后再试");
             }
             redisTemplate.expire(businessKey, annotation.lockTime(), TimeUnit.SECONDS);
             Thread currentThread = Thread.currentThread();
             // 将本次 Task 信息加入「延时」队列中
-            holderList.add(new RedisLockDefinitionHolder(businessKey, annotation.lockTime(), System.currentTimeMillis(),
+            holderList.add(new RedisLockTestHolder(businessKey, annotation.lockTime(), System.currentTimeMillis(),
                     currentThread, annotation.tryCount()));
             // 执行业务操作
             result = pjp.proceed();
             // 线程被中断，抛出异常，中断此次请求
             if (currentThread.isInterrupted()) {
-                throw new InterruptedException("You had been interrupted =-=");
+                throw new InterruptedException("中断请求");
             }
         } catch (InterruptedException e) {
-            log.error("Interrupt exception, rollback transaction", e);
-            throw new Exception("Interrupt exception, please send request again");
+            log.error("出现异常", e);
         } catch (Exception e) {
-            log.error("has some error, please check again", e);
+            log.error("出现错误", e);
         } finally {
             // 请求结束后，强制删掉 key，释放锁
             redisTemplate.delete(businessKey);
-            log.info("release the lock, businessKey is [" + businessKey + "]");
+            log.info("删除redis锁, businessKey 是 [" + businessKey + "]");
         }
         return result;
     }
