@@ -1,6 +1,5 @@
 package com.cyfhandsome.enums;
 
-import com.wpg.tools.common.module.RestResult;
 import org.apache.commons.lang3.StringUtils;
 
 /**
