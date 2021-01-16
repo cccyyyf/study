@@ -2,6 +2,7 @@ package com.cyfhandsome.aspect;
 
 import com.cyfhandsome.annotation.RedisLockAnnotation;
 import com.cyfhandsome.enums.RedisLockTypeEnum;
+import com.cyfhandsome.exception.ErrorException;
 import com.cyfhandsome.modol.RedisLockTestHolder;
 import org.apache.commons.lang3.concurrent.BasicThreadFactory;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -147,7 +148,7 @@ public class RedisLockAspect {
         try {
             boolean isSuccess = redisTemplate.opsForValue().setIfAbsent(businessKey, uniqueValue);
             if (!isSuccess) {
-                throw new Exception("正在操作，请稍后再试");
+                throw new ErrorException("正在操作，请稍后再试");
             }
             redisTemplate.expire(businessKey, annotation.lockTime(), TimeUnit.SECONDS);
             Thread currentThread = Thread.currentThread();
