@@ -124,7 +124,7 @@ public class RedisLockAspect {
         return method;
     }
 
-
+//////TTTTEST
 
     @Pointcut("@annotation(com.cyfhandsome.annotation.RedisLockAnnotation)")
     public void redisLockPc() {
