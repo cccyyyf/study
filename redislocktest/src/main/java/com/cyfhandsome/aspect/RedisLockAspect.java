@@ -130,8 +130,6 @@ public class RedisLockAspect {
     public void redisLockPc() {
     }
 
-    //pushtttttest
-
     @Around(value = "redisLockPc()")
     public Object around(ProceedingJoinPoint pjp) throws Throwable {
         log.info("测试测试");
