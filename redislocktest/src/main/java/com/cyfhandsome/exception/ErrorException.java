@@ -1,7 +1,6 @@
 package com.cyfhandsome.exception;
 
 import com.cyfhandsome.enums.ErrorCode;
-import com.cyfhandsome.enums.ErrorCodeEnum;
 import lombok.Data;
 
 /**

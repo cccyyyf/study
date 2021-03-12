@@ -22,9 +22,6 @@ import java.lang.reflect.Method;
 @Component
 @Slf4j
 //@Profile({"*"})
-
-//ttttry
-
 public class WebLogAspect {
 
     @Pointcut("@annotation(com.cyfhandsome.annotation.WebLog)")
