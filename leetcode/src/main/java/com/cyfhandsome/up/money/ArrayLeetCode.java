@@ -2,6 +2,7 @@ package com.cyfhandsome.up.money;
 
 
 import java.util.Arrays;
+import java.util.Scanner;
 import java.util.logging.Logger;
 
 /**
@@ -168,6 +169,93 @@ public class ArrayLeetCode {
 
         public static void main(String[] args) {
             log.info(Arrays.toString(searchRange(new int[]{2,2},2)));
+        }
+    }
+
+    /**
+     * 给你一个非负整数 x ，计算并返回x的 算术平方根 。
+     *
+     * 由于返回类型是整数，结果只保留 整数部分 ，小数部分将被 舍去 。
+     *
+     * 注意：不允许使用任何内置指数函数和算符，例如 pow(x, 0.5) 或者 x ** 0.5 。
+     *
+     * 示例 1：
+     *
+     * 输入：x = 4
+     * 输出：2
+     * 示例 2：
+     *
+     * 输入：x = 8
+     * 输出：2
+     * 解释：8 的算术平方根是 2.82842..., 由于返回类型是整数，小数部分将被舍去。
+     *
+     * 来源：力扣（LeetCode）
+     * 链接：https://leetcode-cn.com/problems/sqrtx
+     * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+     */
+    static class MySqrt {
+        public static int mySqrt(int x) {
+            if(x <=1){
+                return x;
+            }
+            int max = x;
+            int min = 0;
+            while (max - min >1){
+                int mid = (min + max) >> 1;
+                if(x/mid < mid){
+                    max = mid;
+                }else {
+                    min = mid;
+                }
+            }
+            return min;
+        }
+
+        public static void main(String[] args) {
+
+            log.info(String.valueOf(mySqrt(16)));
+        }
+    }
+
+
+    /**
+     * 给定一个 正整数 num ，编写一个函数，如果 num 是一个完全平方数，则返回 true ，否则返回 false 。
+     *
+     * 进阶：不要 使用任何内置的库函数，如 sqrt 。
+     *
+     * 示例 1：
+     *
+     * 输入：num = 16
+     * 输出：true
+     * 示例 2：
+     *
+     * 输入：num = 14
+     * 输出：false
+     *
+     * 来源：力扣（LeetCode）
+     * 链接：https://leetcode-cn.com/problems/valid-perfect-square
+     * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+     */
+    static class IsPerfectSquare {
+        public static boolean isPerfectSquare(int num) {
+            //利用二分查找
+            int min = 0;
+            int max = num;
+            while (min <= max){
+                int mid = (min + max) >> 1;
+                if(mid * mid == num){
+                    return true;
+                }else if((long)mid * mid > num){
+                    max = mid - 1;
+                }else {
+                    min = mid + 1;
+                }
+            }
+            return false;
+        }
+
+        public static void main(String[] args) {
+            log.info(String.valueOf(isPerfectSquare(16)));
         }
     }
 
