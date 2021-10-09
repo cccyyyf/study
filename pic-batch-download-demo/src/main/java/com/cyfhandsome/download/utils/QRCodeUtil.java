@@ -21,11 +21,17 @@ import java.util.Hashtable;
 public class QRCodeUtil {
     private static final String CHARSET = "utf-8";
     private static final String FORMAT_NAME = "JPG";
-    // 二维码尺寸
+    /**
+     * 二维码尺寸
+     */
     private static final int QRCODE_SIZE = 1000;
-    // LOGO宽度
+    /**
+     * LOGO宽度
+     */
     private static final int WIDTH = 60;
-    // LOGO高度
+    /**
+     * LOGO高度
+     */
     private static final int HEIGHT = 60;
 
     private static BufferedImage createImage(String content, String imgPath, boolean needCompress) throws Exception {

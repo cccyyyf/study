@@ -40,10 +40,9 @@ public class RedisLockController {
     public RestResult testRedisLock(@RequestParam("userId") Long userId) {
         try {
             log.info("睡眠执行前");
-            Thread.sleep(10000);
+//            Thread.sleep(10000);
             log.info("睡眠执行后");
         } catch (Exception e) {
-            // log error
             log.info("has some error", e);
         }
         return RestResult.success();

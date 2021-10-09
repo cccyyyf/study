@@ -124,7 +124,6 @@ public class RedisLockAspect {
         return method;
     }
 
-//////TTTTEST
 
     @Pointcut("@annotation(com.cyfhandsome.annotation.RedisLockAnnotation)")
     public void redisLockPc() {
@@ -132,7 +131,6 @@ public class RedisLockAspect {
 
     @Around(value = "redisLockPc()")
     public Object around(ProceedingJoinPoint pjp) throws Throwable {
-        log.info("测试测试");
         // 解析参数
         Method method = resolveMethod(pjp);
         RedisLockAnnotation annotation = method.getAnnotation(RedisLockAnnotation.class);
@@ -168,7 +166,7 @@ public class RedisLockAspect {
         } finally {
             // 请求结束后，强制删掉 key，释放锁
             redisTemplate.delete(businessKey);
-            log.info("删除redis锁, businessKey 是 [" + businessKey + "]");
+            log.info("删除redis锁, businessKey 是 [{}]",businessKey);
         }
         return result;
     }

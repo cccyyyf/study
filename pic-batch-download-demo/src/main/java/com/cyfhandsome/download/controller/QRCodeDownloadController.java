@@ -15,7 +15,7 @@ import java.util.zip.ZipOutputStream;
  * @date 2021/10/8 16:31
  */
 @RestController
-public class PicDownloadController {
+public class QRCodeDownloadController {
     /**
      * data为链接，用 , 分割
      * @param response

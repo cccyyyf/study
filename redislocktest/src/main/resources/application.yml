@@ -4,7 +4,7 @@ spring:
 #  profiles:
 #    active: dev
   redis:
-    host: 192.168.136.128
+    host: localhost
     port: 6379
     password: 123456
     timeout: 2000
@@ -12,7 +12,7 @@ spring:
     driverClassName: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://${MYSQL_MASTER_URL:localhost}:${MYSQL_MASTER_PORT:3306}/wpg_centralized_water?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
     username: root
-    password: cyfhandsome
+    password: 123456
 
 # monitor port
 server:
