@@ -1,6 +1,4 @@
 
-7
-pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 p
 @redislocktest/src/main/java/com/cyfhandsome/enums/ErrorCode.java,d\4\d4aab50ace61a21ecb46f98f9ba1e03e737d82f0
 x
@@ -19,8 +17,6 @@ Eredislocktest/src/main/java/com/cyfhandsome/RedisLockApplication.java,7\a\7ad1
 Nredislocktest/src/main/java/com/cyfhandsome/advice/GlobalExceptionHandler.java,9\d\9d1ae1c5d946eed530778db130fc608414732f36
 t
 Dredislocktest/src/main/java/com/cyfhandsome/enums/ErrorCodeEnum.java,7\2\721239460dd8161cc42c31932489172d0275b202
-E
-redislocktest/pom.xml,3\5\35c4fb7afb9035868a417851aae96af53a2751a9
 t
 Dredislocktest/src/main/java/com/cyfhandsome/aspect/WebLogAspect.java,8\f\8f6d6d8ddeda97ca664d60ee98e9200eb63239ba
 w
@@ -29,3 +25,5 @@ y
 Iredislocktest/src/main/java/com/cyfhandsome/exception/ErrorException.java,f\e\fe14d9806030920567c3689af5ff31d1fa3ee8a4
 
 Oredislocktest/src/main/java/com/cyfhandsome/controller/RedisLockController.java,e\b\ebc056574c658a09a3207c564b31a0238af991a0
+\
+,.idea/inspectionProfiles/Project_Default.xml,4\9\496a238a6afa168dbaf6efd37bb459331589579c
