@@ -189,11 +189,11 @@ zrank key member                               返回该值在集合中的排名
 
 ##### setbit key offest value 设置偏移量的值，返回之前此位置的值
 
-![image.png](./assets/image.png)
+![image.png](pic/image.png)
 
 ##### getbit key offest 获取bitmap中某个偏移量的值 不存在则返回0
 
-![image.png](./assets/1634196042357-image.png)
+![image.png](pic/1634196042357-image.png)
 
 ##### bitcount key [start end] 统计字符串从start字节到end字节比特值为1的数量
 
