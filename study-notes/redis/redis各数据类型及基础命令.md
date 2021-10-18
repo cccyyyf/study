@@ -243,7 +243,6 @@ redis中设置的是bit bitcount统计的是byte
 
 ## HyperLogLog
 
-
 在工作当中，我们经常会遇到与统计相关的功能需求，比如统计网站 PV（PageView 页面访问量），可以使用 Redis 的 incr、incrby 轻松实现。但像 UV（UniqueVisitor 独立访客）、独立 IP 数、搜索记录数等需要去重和计数的问题如何解决？这种求集合中不重复元素个数的问题称为基数问题。
 
 解决基数问题有很多种方案：
