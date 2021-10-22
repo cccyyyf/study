@@ -22,15 +22,12 @@
         <mapstruct.version>1.3.1.Final</mapstruct.version>
     </properties>
 
+
+
     <dependencyManagement>
+
         <dependencies>
-            <dependency>
-                <groupId>com.wpg</groupId>
-                <artifactId>wpg-tools-bom</artifactId>
-                <version>${wpg.tools.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
+
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
@@ -55,6 +52,16 @@
                 <groupId>com.google.zxing</groupId>
                 <artifactId>core</artifactId>
                 <version>3.3.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>1.2.70</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.8.1</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -142,30 +149,6 @@
         </pluginManagement>
     </build>
 
-    <repositories>
-        <repository>
-            <id>wpg-maven-public</id>
-            <url>https://maven.cloud4water.com/repository/wpg-maven-public/</url>
-        </repository>
-    </repositories>
-    <pluginRepositories>
-        <pluginRepository>
-            <id>wpg-maven-public</id>
-            <url>https://maven.cloud4water.com/repository/wpg-maven-public/</url>
-        </pluginRepository>
-    </pluginRepositories>
 
-    <distributionManagement>
-        <repository>
-            <id>wpg-maven-release</id>
-            <name>WPG Nexus Repository</name>
-            <url>https://maven.cloud4water.com/repository/wpg-maven-release/</url>
-        </repository>
-        <snapshotRepository>
-            <id>wpg-maven-snapshots</id>
-            <name>WPG Nexus Repository</name>
-            <url>https://maven.cloud4water.com/repository/wpg-maven-snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
 
 </project>

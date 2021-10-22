@@ -3,8 +3,6 @@ p
 @redislocktest/src/main/java/com/cyfhandsome/enums/ErrorCode.java,d\4\d4aab50ace61a21ecb46f98f9ba1e03e737d82f0
 x
 Hredislocktest/src/main/java/com/cyfhandsome/enums/RedisLockTypeEnum.java,3\6\363d08546aec23c389216958f6cd4a0485c6c92f
-q
-Aredislocktest/src/main/java/com/cyfhandsome/modol/RestResult.java,0\6\067770f1dcb5b5bc81c83d346d00791436fb518d
 z
 Jredislocktest/src/main/java/com/cyfhandsome/modol/RedisLockTestHolder.java,5\5\552a14ed018198ea9215ab1c0e9fcd336a63cba9
 r
@@ -13,8 +11,6 @@ u
 Eredislocktest/src/main/java/com/cyfhandsome/RedisLockApplication.java,7\a\7ad13a20d13e878a4a5616e8235380688f395cb7
 ~
 Nredislocktest/src/main/java/com/cyfhandsome/advice/GlobalExceptionHandler.java,9\d\9d1ae1c5d946eed530778db130fc608414732f36
-t
-Dredislocktest/src/main/java/com/cyfhandsome/enums/ErrorCodeEnum.java,7\2\721239460dd8161cc42c31932489172d0275b202
 \
 ,.idea/inspectionProfiles/Project_Default.xml,4\9\496a238a6afa168dbaf6efd37bb459331589579c
 :
@@ -22,22 +18,10 @@ Dredislocktest/src/main/java/com/cyfhandsome/enums/ErrorCodeEnum.java,7\2\72123
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
 r
 Bleetcode/src/main/java/com/cyfhandsome/up/money/ArrayLeetCode.java,4\a\4a264828086dc14a0e548af9a35c4b5985eae179
-G
-springeventdemo/pom.xml,d\1\d1235d8a82021573b98fea2e3441c0b748a94116
 ‡
 Wpic-batch-download-demo/src/main/java/com/cyfhandsome/download/DownloadApplication.java,9\d\9d234607159422b7f7cc707a03fa4ddd72a83eb8
-7
-pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
-E
-redislocktest/pom.xml,3\5\35c4fb7afb9035868a417851aae96af53a2751a9
-y
-Iredislocktest/src/main/java/com/cyfhandsome/exception/ErrorException.java,f\e\fe14d9806030920567c3689af5ff31d1fa3ee8a4
-—
-gpic-batch-download-demo/src/main/java/com/cyfhandsome/download/controller/QRCodeDownloadController.java,9\2\927c8eb658b6481db8d473a076a7b6125d1ea40f
 „
 Tpic-batch-download-demo/src/main/java/com/cyfhandsome/download/utils/QRCodeUtil.java,4\0\4009d98c050cb677db22425832a8cbb6f59b438a
-O
-pic-batch-download-demo/pom.xml,6\5\65f6d2e03fd61e6bb9b0c0af36a0a04cbdd40f3b
 t
 Dredislocktest/src/main/java/com/cyfhandsome/aspect/WebLogAspect.java,8\f\8f6d6d8ddeda97ca664d60ee98e9200eb63239ba
 

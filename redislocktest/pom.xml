@@ -14,34 +14,6 @@
 
 
     <dependencies>
-        <!--<dependency>
-            <groupId>com.wpg</groupId>
-            <artifactId>wpg-cdw-ys-service</artifactId>
-            <version>${wpg.project.version}</version>
-            <exclusions>
-                <exclusion>
-                    <artifactId>mysql-connector-java</artifactId>
-                    <groupId>mysql</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>-->
-
-        <dependency>
-            <groupId>com.wpg</groupId>
-            <artifactId>wpg-tools-web</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.wpg</groupId>
-            <artifactId>wpg-tools-starter-redis</artifactId>
-            <exclusions>
-                <exclusion>
-                    <artifactId>redisson</artifactId>
-                    <groupId>org.redisson</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -60,13 +32,18 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-rest</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jdbc</artifactId>
-        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
         </dependency>
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
@@ -120,15 +97,6 @@
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
 
-       <!-- <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-        </dependency>-->
 
         <dependency> <!-- 引入log4j2依赖 -->
             <groupId>org.springframework.boot</groupId>
@@ -164,11 +132,11 @@
             <version>1.8.0</version>
         </dependency>-->
 
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>junit</groupId>-->
+<!--            <artifactId>junit</artifactId>-->
+<!--            <version>4.13</version>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.hamcrest</groupId>
             <artifactId>hamcrest-all</artifactId>
@@ -177,16 +145,6 @@
 
     </dependencies>
 
-<!--    <build>-->
-<!--        <plugins>-->
-<!--            <plugin>-->
-<!--                <groupId>org.springframework.boot</groupId>-->
-<!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
-<!--                <configuration>-->
-<!--                    <mainClass>com.wpg.cdw.CenterApplication</mainClass>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
-<!--        </plugins>-->
-<!--    </build>-->
+
 
 </project>
