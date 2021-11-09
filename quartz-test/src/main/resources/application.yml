@@ -1,0 +1,39 @@
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${MYSQL_MASTER_URL:localhost}:${MYSQL_MASTER_PORT:3306}/wpg_centralized_water?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+    quartz:
+      driverClassName: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://${MYSQL_MASTER_URL:localhost}:${MYSQL_MASTER_PORT:3306}/quartz?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+      username: root
+      password: 123456
+  quartz:
+    job-store-type: jdbc # 使用数据库存储
+    scheduler-name: hyhScheduler # 相同 Scheduler 名字的节点，形成一个 Quartz 集群
+    wait-for-jobs-to-complete-on-shutdown: true # 应用关闭时，是否等待定时任务执行完成。默认为 false ，建议设置为 true
+    jdbc:
+      initialize-schema: never # 是否自动使用 SQL 初始化 Quartz 表结构。这里设置成 never ，我们手动创建表结构。
+    properties:
+      org:
+        quartz:
+          scheduler:
+            instanceName: clusteredScheduler
+            instanceId: AUTO
+          jobStore:
+            class: org.quartz.impl.jdbcjobstore.JobStoreTX
+            driverDelegateClass: org.quartz.impl.jdbcjobstore.StdJDBCDelegate
+            tablePrefix: QRTZ_
+            isClustered: true
+            clusterCheckinInterval: 10000
+            useProperties: false
+          threadPool:
+            class: org.quartz.simpl.SimpleThreadPool
+            threadCount: 10
+            threadPriority: 5
+            threadsInheritContextClassLoaderOfInitializingThread: true
+  application:
+    name: quartz-api
+server:
+  port: 7011

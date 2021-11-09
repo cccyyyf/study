@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="springeventdemo" />
         <module name="redislocktest" />
+        <module name="quartz-test" />
         <module name="pic-batch-download-demo" />
       </profile>
     </annotationProcessing>

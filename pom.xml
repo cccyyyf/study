@@ -12,6 +12,7 @@
         <module>redislocktest</module>
         <module>springeventdemo</module>
         <module>pic-batch-download-demo</module>
+        <module>quartz-test</module>
     </modules>
 
     <properties>

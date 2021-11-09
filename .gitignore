@@ -8,7 +8,7 @@
 *.tar.gz
 *.rar
 #maven ignore
-target/
+../target/
 build/
 
 #eclipse ignore
