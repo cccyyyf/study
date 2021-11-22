@@ -2,7 +2,6 @@ package com.cyfhandsome.up.money;
 
 
 import java.util.Arrays;
-import java.util.Scanner;
 import java.util.logging.Logger;
 
 /**
