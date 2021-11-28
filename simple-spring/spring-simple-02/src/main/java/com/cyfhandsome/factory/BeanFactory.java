@@ -5,5 +5,5 @@ package com.cyfhandsome.factory;
  * @date 2021/11/24 18:38
  */
 public interface BeanFactory {
-    public Object getBean(String beanName);
+    Object getBean(String beanName);
 }

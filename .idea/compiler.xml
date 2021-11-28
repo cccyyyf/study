@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="spring-simple-02" />
+        <module name="hashmap" />
         <module name="springeventdemo" />
         <module name="redislocktest" />
         <module name="quartz-test" />
