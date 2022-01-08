@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>spring-simple-02</module>
+        <module>spring-simple-03</module>
     </modules>
 
     <properties>

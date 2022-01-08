@@ -23,8 +23,9 @@ public class AllSort {
             if (arr.length <= 1) {
                 return arr;
             }
-            boolean flag = true;
-            for (int i = 0; i < arr.length - 1 && flag; i++) {
+
+            for (int i = 0; i < arr.length - 1 ; i++) {
+                boolean flag = true;
                 for (int j = 0; j < arr.length - 1 - i; j++) {
                     if (arr[j] > arr[j + 1]) {
                         swap(arr, j, j + 1);
