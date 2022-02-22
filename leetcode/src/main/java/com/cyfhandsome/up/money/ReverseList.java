@@ -60,7 +60,7 @@ public class ReverseList {
     }
 
     /**
-     * 双链表
+     * 反转链表 迭代法
      *
      * @param head
      * @return
@@ -82,6 +82,11 @@ public class ReverseList {
         return newNode;
     }
 
+    /**
+     * 反转链表 递归法
+     * @param head
+     * @return
+     */
     public static ListNode reverseList(ListNode head) {
         if (head == null || head.next == null) {
             return head;
