@@ -40,4 +40,19 @@ public class LengthOfLongestSubstring {
         String s = sc.nextLine();
         System.out.println(lengthOfLongestSubstring(s));
     }
+
+    public int lengthOfLongestSubstringAgain(String s) {
+        Map<Character,Integer> chMap = new HashMap<>();
+        int left = 0;
+        int maxLength = 0;
+        for (int i = 0; i < s.length(); i++) {
+            //如果包含数字,则证明子串重复,替换字符位置,将指针移到第一个重复字符后面一个
+            if(chMap.containsKey(s.charAt(i))){
+                left = Math.max(left,chMap.get(s.charAt(i))+1);
+            }
+            chMap.put(s.charAt(i),i);
+            maxLength = Math.max(maxLength,i-left+1);
+        }
+        return maxLength;
+    }
 }

@@ -176,7 +176,5 @@ Nsimple-spring/spring-simple-03/src/test/java/com/cyfhandsome/test/ApiTest.java
 Zsimple-spring/spring-simple-03/src/test/java/com/cyfhandsome/test/service/UserService.java,4\c\4c42a2c6ab322c1307db003fa615fd759cd42eb4
 r
 Bleetcode/src/main/java/com/cyfhandsome/up/money/StudyLeetCode.java,8\2\82af3d12bd3c6ea630fcbf4ba63f9177790b1d3c
-q
-Aleetcode/src/main/java/com/cyfhandsome/up/money/HasCycleList.java,3\2\32e378b6981f677f07e4ab120d321a3c478a82b6
 r
 Bleetcode/src/main/java/com/cyfhandsome/up/money/ArrayLeetCode.java,4\a\4a264828086dc14a0e548af9a35c4b5985eae179
