@@ -4,6 +4,7 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Executor;
 import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.IntStream;
 
 /**
  * @author cyf
@@ -38,6 +39,62 @@ public class CoreThreadPool implements Executor {
 
     @Override
     public void execute(Runnable command) {
+        if (++threadCount <= coreSize) {
+            new Worker(command).start();
+        }else {
+            try {
+                workQueue.put(command);
+            } catch (InterruptedException e) {
+                throw new IllegalStateException(e);
+            }
+        }
+    }
+
+    /**
+     * 运行线程
+     */
+    private class Worker extends Thread {
+        private Runnable firstTask;
+
+        public Worker(Runnable runnable) {
+            super(String.format("Worker-%d", COUNTER.getAndIncrement()));
+            this.firstTask = runnable;
+        }
+
+        @Override
+        public void run() {
+            Runnable task = this.firstTask;
+            while (null != task || null != (task = getTask())) {
+                try {
+                    task.run();
+                } finally {
+                    task = null;
+                }
+            }
+        }
+
 
     }
+
+    /**
+     * 获取消息队列中的线程
+     *
+     * @return 线程
+     */
+    public Runnable getTask() {
+        try {
+            return workQueue.take();
+        } catch (InterruptedException e) {
+            throw new IllegalStateException(e);
+        }
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        CoreThreadPool coreThreadPool = new CoreThreadPool(5);
+        IntStream.range(0,10).forEach(i -> coreThreadPool.execute(() ->
+                System.out.printf("Thread:%s,value:%d%n"
+                        , Thread.currentThread().getName(), i)));
+        Thread.sleep(Integer.MAX_VALUE);
+    }
+
 }
